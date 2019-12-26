@@ -29,8 +29,9 @@ class AuthFormType extends AbstractType
     public function buildForm(FormBuilderInterface $builder, array $options)
     {
         $builder
-            ->add('email', EmailType::class)
+            ->add('email', EmailType::class,['label'=>false])
             ->add('password', PasswordType::class, [
+                'label'=>false,
                 'constraints' => [
                     new NotBlank([
                         'message' => 'Please enter a password',

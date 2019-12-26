@@ -48,10 +48,19 @@ class RegistrationController extends AbstractController
     /**
      * @Route("/user/home", name="user_home")
      */
-    public function userHome(Request $request, Security $security): Response
+    public function homepage(Security $security): Response
     {
-        $user = $security->getUser();
+       $user = $security->getUser();
        return $this->render('dashboard/user.html.twig', ['user' => $user]);
+
+    }
+
+    /**
+     * @Route("/", name="home")
+     */
+    public function userHome()
+    {
+       return $this->render('index.html.twig');
 
     }
 }

@@ -3,14 +3,47 @@
 {% block title %}Register
 {% endblock %}
 
+{% block stylesheets %}
+	<link href="{{ asset('css/style.css') }}" rel="stylesheet">
+
+{% endblock %}
+
 {% block body %}
 	<div class="container ">
 		<div class="row justify-content-center ">
 			<div class="col-md-8">
 				<div class="jumbotron">
-					<h1>User Logged In</h1>
+					<h1>Welcome
+						{{app.user.firstName}}</h1>
+					<a href="/logout" class="btn btn-sm btn-danger align-right">Logout</a>
 				</div>
-				<a href="/logout" class="btn btn-sm btn-danger">Logout</a>
+				<table class="table table-striped">
+
+					<tbody>
+						<tr>
+							<th scope="row">1</th>
+							<td>First Name</td>
+							<td>{{app.user.firstName}}</td>
+						</tr>
+						<tr>
+							<th scope="row">2</th>
+							<td>Last Name</td>
+							<td>{{app.user.lastName}}</td>
+						</tr>
+						<tr>
+							<th scope="row">3</th>
+							<td>Email</td>
+							<td>{{app.user.email}}</td>
+						</tr>
+						<tr>
+							<th scope="row">4</th>
+							<td>BirthDate</td>
+							<td>{{app.user.birthdate |date('Y-m-d')}}</td>
+
+						</tr>
+
+					</tbody>
+				</table>
 
 			</div>
 		</div>

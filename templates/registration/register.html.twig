@@ -2,30 +2,58 @@
 
 {% block title %}Register
 {% endblock %}
+{% block stylesheets %}
+	<link href="{{ asset('css/style.css') }}" rel="stylesheet">
+
+{% endblock %}
 
 {% block body %}
-	<div class="container ">
-		<div class="row justify-content-center ">
-			<div class="col-md-8">
-				<div class="content">
-					<h1>Register</h1>
-					{{ form_start(registrationForm) }}
-					<div class="form-group">
-						{{ form_row(registrationForm.email, {'attr': {'class': 'form-control'}}) }}
-					</div>
-					<div class="form-group">
-						{{ form_row(registrationForm.plainPassword, {'attr': {'class': 'form-control'}}) }}
+	<header class="masthead">
+		<div class="container h-100">
+			<div class="row h-100 align-items-center justify-content-center text-center">
+				<div class="col-md-6">
+					<a class="btn btn-primary btn-block text-white mb-3" href="/">Home</a>
+					<div class="content">
+						<h2 class="text-uppercase text-white font-weight-bold">Register</h2>
+						{{ form_start(registrationForm) }}
+						<div class="form-group text-white-75 font-weight-bold mb-5">
 
-					</div>
+							{{ form_row(registrationForm.firstName, {'attr': {'class': 'form-control text-dark','placeholder':'First Name'}}) }}
 
-					<div class="form-group form-check">
-						{{ form_row(registrationForm.agreeTerms, {'attr': {'class': 'form-check-label'}}) }}
-					</div>
+						</div>
+						<div class="form-group text-white-75 font-weight-bold mb-5">
+							{{ form_row(registrationForm.lastName, {'attr': {'class': 'form-control text-dark','placeholder':'Last Name'}}) }}
 
-					<button class="btn">Register</button>
-					{{ form_end(registrationForm) }}
+						</div>
+						<div class="form-group text-white-75 font-weight-bold mb-5">
+
+							{{ form_row(registrationForm.email, {'attr': {'class': 'form-control text-dark','placeholder':'Email'}}) }}
+
+						</div>
+						<div class="form-group">
+							{{ form_row(registrationForm.plainPassword, {'attr': {'class': 'form-control text-dark','placeholder':'Password'}}) }}
+
+						</div>
+						<div class="form-group">
+							<label class="text-white-75 font-weight-bold mb-1">BirthDate</label>
+							{{ form_row(registrationForm.birthdate, {'attr': {'class': ''}}) }}
+
+						</div>
+
+						<div class="form-group form-check text-white">
+
+							{{ form_row(registrationForm.agreeTerms, {'attr': {'class': 'form-check-label text-white'}}) }}
+
+						</div>
+
+						<button class="btn btn-primary text-white">Register</button>
+
+						{{ form_end(registrationForm) }}
+					</div>
 				</div>
 			</div>
+
 		</div>
-	</div>
+	</header>
+
 {% endblock %}
